@@ -3,7 +3,7 @@
     let maxAge = window.prompt("Input Max Age:");
     let numPerDay = window.prompt("Input number of consumed per day:");
     
-    let sure = window.confirm(`Is ${numPerDay} your consumed per day?`+`Is ${maxAge} your age?`+`Is ${age} your age?`);
+    let sure = window.confirm(`Confirm ${age} ${maxAge} ${numPerDay} ${age}`);
 
     if (sure == true){      
         var totalRequired = (numPerDay * 365) * (maxAge - age);
