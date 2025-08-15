@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2> Q1 2nd Graded Exercise submitted by Marian Chiara Carpiso of 9 - Potassium</h2>
+<head>
+    <style>
+        body {
+            background-color:bisque;
+            font-size: 30px;
+            color:darkorchid;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<form action="/action_page.php">
+    <label for="mealPrice">Meal Price:</label>
+    <input type="text" id="mealPrice" name="mealPrice">
+    <br>
+    <label for="tip">Tip:</label>
+    <input type="text" id="tip" name="tip">
+    <br>
+    <label for="serviceCharge">Service Charge:</label>
+    <input type="text" id="serviceCharge" name="serviceCharge">
+    <br>
+</form>
+
+<form action="/action_page.php">
+    <label for="input">Accept Input</label>
+    <input type="submit">
+  </form>
+
+<script type="text/javascript">
+    const btn = document.getElementById("btn_submit");
+    const mp = document.getElementById("inp_mp");
+    const tip = document.getElementById("inp_tip");
+    const sc = document.getElementById("inp_sc");
+
+    btn.addEventListener('click', btn_clicked);
+    function btn_clicked() {
+        alert(age)
+    }
+
+
+</script>
+
+</body>
+</html>
