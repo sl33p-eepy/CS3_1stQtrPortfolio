@@ -2,12 +2,12 @@
 <html>
 <body>
 
-    <h2> Q1 2nd Graded Exercise submitted by Marian Chiara Carpiso of 9 - Potassium</h2>
+    <h3> Q1 2nd Graded Exercise submitted by Marian Chiara Carpiso of 9 - Potassium</h3>
 <head>
     <style>
         body {
             background-color:bisque;
-            font-size: 30px;
+            font-size: 25px;
             color:darkorchid;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
@@ -15,34 +15,30 @@
 </head>
 
 <body>
-<form action="/action_page.php">
-    <label for="mealPrice">Meal Price:</label>
-    <input type="text" id="mealPrice" name="mealPrice">
-    <br>
-    <label for="tip">Tip:</label>
-    <input type="text" id="tip" name="tip">
-    <br>
-    <label for="serviceCharge">Service Charge:</label>
-    <input type="text" id="serviceCharge" name="serviceCharge">
-    <br>
 
-<form action="/action_page.php">
-    <label for="input">Accept Input</label>
-    <input type="submit">
-  </form>
+    <label for="mealPrice">Meal Price:</label>
+    <input type="text" id="mealPrice" name="mealPrice"><br>
+
+    <label for="tip">Tip:</label>
+    <input type="text" id="tip" name="tip"><br>
+
+    <label for="serviceCharge">Service Charge:</label>
+    <input type="text" id="serviceCharge" name="serviceCharge"><br>
+
+    <button id="btn_submit">Accept Input</button>
+    <p id="result">Total Meal: </p>
 
 <script type="text/javascript">
-    const btn = document.getElementById("btn_submit");
-    const mp = document.getElementById("inp_mp");
-    const tip = document.getElementById("inp_tip");
-    const sc = document.getElementById("inp_sc");
+    const btn = document.getElementById("btn_submit"); 
+    btn.addEventListener("click", function() {
+        let mp = Number(document.getElementById("mealPrice").value);
+        let tip = Number(document.getElementById("tip").value);
+        let sc = Number(document.getElementById("serviceCharge").value);
 
-    btn.addEventListener('click', btn_clicked);
-    function btn_clicked() {
-        alert(age)
-    }
+        let totalCost = mp + tip + (sc / 100 * mp)
 
-
+        document.getElementById("result").innerHTML = "Total Meal: " + totalCost.toFixed(2);
+    });
 </script>
 
 </body>
