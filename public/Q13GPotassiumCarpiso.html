@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2> Q1 3rd Graded Exercise submitted by Marian Chiara Carpiso of 9 - Potassium</h2>
+<head>
+    <style>
+        body {
+            background-color:cadetblue;
+            font-size: 25px;
+            color:ivory;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Guess the number: ****</p>
+    <p>The number is from 1 to 100</p>
+
+    <label for="num">Enter your guess:</label>
+    <input type="text" id="num"name="num"><br>
+
+    <button onclick="checkIt()">Check it</button>
+    <p id="result">Result: </p>
+
+    <script type="text/javascript">
+
+        var dNumber = Math.floor(Math.random() * 100) + 1;
+
+        function checkIt(){
+            var guess = Number(document.getElementById("num").value);
+            var result = document.getElementById("result");
+
+            if (guess < 1 || guess > 100) {
+                result.innerHTML = "Enter a number between 1 and 100.";
+            } else if (guess < dNumber) {
+                result.innerHTML = "Higher";
+            } else if (guess > dNumber) {
+                result.innerHTML = "Lower";
+            } else {
+                result.innerHTML = "You are correct!";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
