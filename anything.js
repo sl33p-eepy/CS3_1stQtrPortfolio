@@ -3,14 +3,24 @@ console.log("6+7 = 67");
 
 rl = require('readline')
 rli = rl.createInterface({
-    input : process.stdin;
+    input : process.stdin
 })
-rli.on('line', get_the_channel)
+rli.on('line', get_inputs)
+function get_inputs(line){
+    if(line !=="END"){
+    inputs.push(line)
+}
+else{
+    rli.close()
+}
+var inputs = []
 
-function get_the_channel(line)
-{
-    line = line.trim(). toLowerCase()
-    switch(line){
+rli.on('close', get_the_channel)
+
+function get_the_channel(inputs)
+{   
+    for(let i=0; i<inputs. length; i++)
+    switch(inputs[i]){
         case "5":
             console.log("tv5")
             break;
