@@ -13,6 +13,7 @@ function get_inputs(line){
 else{
     rli.close()
 }
+}
 var inputs = []
 
 rli.on('close', get_the_channel)
