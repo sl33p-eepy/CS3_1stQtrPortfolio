@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>My Favorite Numbers</h1>
+        <ul id="numberList"></ul>
+
+        <script>
+            let list =
+        document.getElementById("numberList");
+            for (let i = 1; i <=10 ; i++) {
+                if (i % 2 ==0){
+                list.innerHTML += `<li>Number ${i} </li>`;
+            }}
+        </script>
+
+        <h1>My Favorite Animals!</h1>
+        <ul id="animalList"></ul>
+
+        <script>
+            let animal = ["Fox", " Deer"," Cat", " Rabbit"];
+            let lists = document.getElementById("animalList");
+
+            for (let i = 0; i < animal.length; i++) {
+                list.innerHTML += `<li>${animal[i]}</li>`;
+            }
+
+            animal.push("Wolf");
+            document.write("New Array: <br>");
+            document.write(animal);
+        </script>
+
+        <h1>Guess a Letter</h1>
+        <input type="text" id="letterInput" maxlength="1">
+        <button onlick="addGuess()">Guess</button>
+        <p>Guessed letters: <span id"guesses"></span></p>
+
+        <script>
+            let guessedLetters = [];
+
+            function addGuess() {
+                let letter = document.getElementById("letterInput").value;
+                guessedLetters.push(letter);
+                document.getElementById("guesses").textContent = guessedLetters.join(", ");
+                document.getElementById("letterInput").value = "";
+            }
+        </script>
+
+    </body>
+</html>
