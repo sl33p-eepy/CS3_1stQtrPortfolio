@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                font-family:'Courier New', Courier, monospace;
+                text-align: center;
+                color:rgb(241, 112, 135);
+                background-color: rgb(246, 246, 246);
+                background-image: url('https://i.pinimg.com/1200x/eb/6c/5f/eb6c5f7c002c23d61f5e897a44f1c716.jpg');
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            h1 {
+                font-style: italic;
+                text-align: center;
+                font-size: 50px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                margin-top: 15px;
+            }
+            #gameContainer {
+                background-color:rgb(226, 249, 216);
+                padding: 40px;
+                border-radius: 60px;
+                max-width: 600px;
+                margin: 40px auto;
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            button {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #ebc2c9;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            }
+        #wordDisplay {
+            font-size: 25px;
+            margin-bottom: 20px;
+            letter-spacing: 0.2em;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            font-size: 15px;
+            padding: 8px;
+            width: 40px;
+            text-align: center;
+            border-radius: 10px;
+            border: 1px solid #ffb6c1;
+            margin-right: 10px;
+        }
+        </style>
+
+        <div id="gameContainer">
+        <h1>Guess My Word ! <br> ₍^. .^₎Ⳋ</h1>
+
+        <p id="wordDisplay"></p>
+        <input type="text" id="guessInput" maxlength="1">
+        <button onclick="makeGuess()">Guess</button>
+        <p id="message"></p>
+        <p><strong>Guessed Letters: </strong><span id="guessedLetters"></span></p>
+        <p id="attempts"></p>
+        </div>
+    
+        <script>
+            let secretWord = ["c", "h", "a", "r", "m", "i", "n", "g", "c", "h", "i", "a", "r", "a"];
+            let guessedWord = ["_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_", "_"];
+            let attemptsLeft = 5;
+            let guessedLetters = [];
+
+            document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+            document.getElementById("attempts").textContent = "Attempts left: " + attemptsLeft;
+
+            function makeGuess() {
+                let guess = document.getElementById("guessInput").value.toLowerCase();
+                document.getElementById("guessInput").value = "";
+                if (!guess || guessedLetters.includes(guess)) return;
+
+                guessedLetters.push(guess);
+                document.getElementById("guessedLetters").textContent = guessedLetters.join(", ");
+                let correct = false;
+
+                for (let i = 0; i < secretWord.length; i++) {
+                    if (secretWord[i] === guess) {
+                        guessedWord[i] = guess;
+                        correct = true;
+                    }
+                }
+
+                if (!correct) {
+                    attemptsLeft--;
+                    document.getElementById("attempts").textContent = "Try again.";
+                    document.getElementById("attempts").className = "wrong";
+                }
+                else {
+                    document.getElementById("attempts").textContent = "Correct!";
+                    document.getElementById("attempts").className = "correct";
+                }
+
+                document.getElementById("wordDisplay").textContent = guessedWord.join(" ");
+                document.getElementById("message").textContent = correct ? "Correct!" : "Try again.";
+                document.getElementById("guessInput").value = "";
+
+                if (guessedWord.join(" ") === secretWord.join(" ")) {
+                    document.getElementById("message").textContent = "Congrats! You guessed the word!";
+                    document.getElementById("message").className = "correct";
+                    disableInput();
+                }
+
+                if (attemptsLeft <=0) {
+                    document.getElementById("message").textContent = "Game Over!";
+                    document.getElementById("message").className = "wrong";
+                    disableInput();
+                }
+
+            }
+        </script>
+
+
+    </body>
+</html>
